@@ -6,5 +6,8 @@ spring:
         url: jdbc:h2:mem:workout_tracker;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
         username: sa
         password:
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
     flyway:
         enabled: false
