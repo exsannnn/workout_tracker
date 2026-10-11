@@ -21,9 +21,20 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(exception.getMessage());
     }
 
-    @ExceptionHandler({ExerciseNotFoundException.class, WorkoutPlanNotFoundException.class})
+    @ExceptionHandler({
+            ExerciseNotFoundException.class,
+            WorkoutPlanNotFoundException.class,
+            WorkoutNotFoundException.class,
+            WorkoutSetNotFoundException.class
+    })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handleNotFound(RuntimeException exception) {
+        return new ErrorResponse(exception.getMessage());
+    }
+
+    @ExceptionHandler(WorkoutAlreadyCompletedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse handleWorkoutAlreadyCompleted(WorkoutAlreadyCompletedException exception) {
         return new ErrorResponse(exception.getMessage());
     }
 
