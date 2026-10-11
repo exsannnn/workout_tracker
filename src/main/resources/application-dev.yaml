@@ -1,0 +1,8 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/workout_tracker
+        username: workout_user
+        password: workout_password
+    docker:
+        compose:
+            file: compose.yaml

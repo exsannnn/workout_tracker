@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: workout-tracker
+    profiles:
+        default: dev
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: validate
+
+server:
+    port: 8080
