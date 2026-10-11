@@ -6,11 +6,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import ru.ilyalagutin.workouttracker.entity.Workout;
 import ru.ilyalagutin.workouttracker.entity.WorkoutStatus;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface WorkoutRepository extends JpaRepository<Workout, Long> {
 
     Optional<Workout> findByIdAndUserId(Long id, Long userId);
+
+    List<Workout> findAllByUserIdAndStatusOrderByCompletedAtDesc(
+            Long userId,
+            WorkoutStatus status);
 
     Page<Workout> findByUserIdAndStatusOrderByCompletedAtDesc(
             Long userId,
